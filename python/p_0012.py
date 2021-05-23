@@ -21,30 +21,32 @@
 
 import math
 
-def make_triangle_number(n:int) -> int:
-    #sequence 1+2+3+...+n
-    return ((n**2+n)//2)
 
-def get_divisors(n:int) -> int:
-    divsors =[]
-    for i in range(1,math.floor(math.sqrt(n)+1)):
+def make_triangle_number(n: int) -> int:
+    # sequence 1+2+3+...+n
+    return (n ** 2 + n) // 2
+
+
+def get_divisors(n: int) -> list:
+    divsors = []
+    for i in range(1, math.floor(math.sqrt(n) + 1)):
         if n % i == 0:
             divsors.append(i)
-            divsors.append(n//i)
+            divsors.append(n // i)
     divsors.sort()
     return divsors
 
 
 if __name__ == "__main__":
     stop = False
-    n=1
+    n = 1
     while stop == False:
-        triangle=make_triangle_number(n)
-        divisors=get_divisors(triangle)
-        divisor_count=len(divisors)
+        triangle = make_triangle_number(n)
+        divisors = get_divisors(triangle)
+        divisor_count = len(divisors)
         print(f"{n} : {triangle} : {divisor_count}")
         if divisor_count > 500:
             break
-        n+=1
-        
+        n += 1
+
     # print(result)
