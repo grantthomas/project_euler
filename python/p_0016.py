@@ -5,7 +5,15 @@
 # What is the sum of the digits of the number 2^1000?
 
 
-def ExplodeToStr(num):
+def NumToDigits(num: int) -> list:
+    """converts number to list of digits
+
+    Args:
+        num (int): number in
+
+    Returns:
+        list: list of ints out
+    """
     return [int(x) for x in str(num)]
 
 
@@ -14,7 +22,7 @@ if __name__ == "__main__":
 
     num = int(2 ** 1000)
 
-    digits = ExplodeToStr(num)
+    digits = NumToDigits(num)
 
     result = sum(digits)
 

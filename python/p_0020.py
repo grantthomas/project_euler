@@ -8,14 +8,14 @@
 # Find the sum of the digits in the number 100!
 
 import math
-from p_0016 import ExplodeToStr
+from p_0016 import NumToDigits
 
 if __name__ == "__main__":
     result = "result"
 
     num = math.factorial(int(1e2))
 
-    digits = ExplodeToStr(num)
+    digits = NumToDigits(num)
 
     result = sum(digits)
 

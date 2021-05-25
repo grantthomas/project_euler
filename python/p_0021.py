@@ -11,7 +11,7 @@ import pprint
 from p_0012 import get_divisors
 
 
-def GetProperDivisors(int) -> list:
+def GetProperDivisors(num) -> list:
     divisors = get_divisors(num)
     divisors.pop(len(divisors) - 1)
     return divisors
