@@ -11,7 +11,16 @@ import pprint
 from p_0012 import get_divisors
 
 
-def GetProperDivisors(num) -> list:
+def GetProperDivisors(num: int) -> list:
+    """for a given int, returns a list of proper divisors
+    Proper divisor is all ints where int<num & int%num==0
+
+    Args:
+        num (int): input
+
+    Returns:
+        list: list of proper divisors
+    """
     divisors = get_divisors(num)
     divisors.pop(len(divisors) - 1)
     return divisors
@@ -20,7 +29,15 @@ def GetProperDivisors(num) -> list:
 divisorList = {}
 
 
-def DivisorSum(GetProperDivisors, num: int) -> int:
+def DivisorSum(num: int) -> int:
+    """for a given int, return the proper divisors and the sum of those divisors
+
+    Args:
+        num (int): input int
+
+    Returns:
+        tuple: (<sum of proper divisors,<list of proper divisors>)
+    """
     properDivisors = GetProperDivisors(num)
     return (sum(properDivisors), properDivisors)
 
@@ -41,7 +58,7 @@ if __name__ == "__main__":
 
     result = "result"
     for num in range(1, 10000):
-        divisorList[num] = DivisorSum(GetProperDivisors, num)[0]
+        divisorList[num] = DivisorSum(num)[0]
     result = divisorList
     del num
 

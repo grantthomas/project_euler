@@ -24,14 +24,50 @@ from p_0021 import GetProperDivisors
 import pprint
 
 
+def NumberType(num: int) -> str:
+    divisorList = list(set(GetProperDivisors(num)))
+    divisorSum = sum(divisorList)
+
+    if num > divisorSum:
+        return "deficient"
+    elif num < divisorSum:
+        return "abundant"
+    return "perfect"
+
+
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=4)
     result = "result"
 
-    num = 12
-    result = GetProperDivisors(num)
-
     # defined in the problem.
     limit = 28123
 
+    abundants = []
+    for n in range(1, limit + 1):
+        numberType = NumberType(n)
+        if numberType == "abundant":
+            abundants.append(n)
+
+    # Find the sum of all the positive integers which cannot be written as the sum
+    # of two abundant numbers.
+
+    # this block of code is the major time sink of the program.
+    # I think this can be optimized as it takes much too long to run.
+    abundantSums = []
+    for n in abundants:
+        if n > limit:
+            break
+        for n1 in abundants:
+            testSum = n + n1
+            if testSum > limit:
+                break
+            if testSum not in abundantSums:
+                abundantSums.append(testSum)
+
+    notAbundantSum = []
+    for n in range(1, limit + 1):
+        if n not in abundantSums:
+            notAbundantSum.append(n)
+
+    result = sum(notAbundantSum)
     pp.pprint(result)
