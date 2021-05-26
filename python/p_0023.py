@@ -25,6 +25,17 @@ import pprint
 
 
 def NumberType(num: int) -> str:
+    """Determines whether a number is abundant, deficient, or perfect
+    A number is perfect if the sum of its proper divisors is exactly equal to the number.
+    A number is deficient if the sum of its proper divisors is less than the number.
+    A number is deficient if the sum of its proper divisors is greater than the number.
+
+    Args:
+        num (int): input number
+
+    Returns:
+        str: one of ["abundant","deficient","perfect"]
+    """
     divisorList = list(set(GetProperDivisors(num)))
     divisorSum = sum(divisorList)
 
