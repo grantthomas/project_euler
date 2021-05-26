@@ -65,10 +65,10 @@ if __name__ == "__main__":
     # this block of code is the major time sink of the program.
     # I think this can be optimized as it takes much too long to run.
     abundantSums = []
-    for n in abundants:
-        if n > limit:
-            break
-        for n1 in abundants:
+    for i in range(len(abundants)):
+        n = abundants[i]
+        for j in range(i, len(abundants)):
+            n1 = abundants[j]
             testSum = n + n1
             if testSum > limit:
                 break
